@@ -34,6 +34,8 @@ This project demonstrates how to integrate AWS Config with Amazon S3, SNS, and C
 
 - Click **Create subscription** and **Confirm** the subscription by clicking the confirmation link sent to the email.
 
+![Image](https://github.com/user-attachments/assets/06982bee-e117-4c2a-baac-dae2ff2d8a75)
+
 
 **NB**: In the **SNS topic console**, select the **topic menu on the left**, and click on **push message** to put a customized message to send when the s3 is non-compliant.
 for example:
