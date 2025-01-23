@@ -97,7 +97,7 @@ Check AWS Config for more details: https://console.aws.amazon.com/config
 - Check your email:
      - An SNS notification is sent to the subscribed email address.
 
-
+![Image](https://github.com/user-attachments/assets/ac31c51a-d369-44ed-bad8-c861e52260cf)
 
 - Check CloudTrail:
      - Go to the **CloudTrail Console**.
