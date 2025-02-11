@@ -37,7 +37,7 @@ This project demonstrates how to integrate AWS Config with Amazon S3, SNS, and C
 ![Image](https://github.com/user-attachments/assets/06982bee-e117-4c2a-baac-dae2ff2d8a75)
 
 
-**NB**: In the **SNS topic console**, select the **topic menu on the left**, and click on **edit**. At the level of the **Access Policy**, paste the following script. Replace your current policy with this (adjust the ```region```, ```account-id```,```topic-name``` and ```accountowner``` accordingly):
+**NB**: In the **SNS topic console**, select the **topic menu on the left**, and click on **edit**. At the level of the **Access Policy**, paste the following script. Replace your current policy with this (adjust the ```region```, ```account-id```,```topic-name``` and ```SourceOwner``` accordingly):
 
 ```json
 {
