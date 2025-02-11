@@ -37,22 +37,47 @@ This project demonstrates how to integrate AWS Config with Amazon S3, SNS, and C
 ![Image](https://github.com/user-attachments/assets/06982bee-e117-4c2a-baac-dae2ff2d8a75)
 
 
-**NB**: In the **SNS topic console**, select the **topic menu on the left**, and click on **push message** to put a customized message to send when the s3 is non-compliant.
-for example:
-```plaintext
-Subject: AWS Config Rule Violation Detected
+**NB**: In the **SNS topic console**, select the **topic menu on the left**, and click on **edit**. At the level of the **Access Policy**, paste the following script. Replace your current policy with this (adjust the ```region```, ```account-id```,```topic-name``` and ```accountowner``` accordingly):
 
-AWS Config detected a rule violation:
-- Resource: S3 Bucket `my-sensitive-bucket`
-- Rule: s3-bucket-public-read-prohibited
-- Status: NON_COMPLIANT
-
-Details: The bucket was made public, violating compliance policies.
-
-Check AWS Config for more details: https://console.aws.amazon.com/config
+```json
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Principal": {
+        "Service": "config.amazonaws.com"
+      },
+      "Action": "sns:Publish",
+      "Resource": "arn:aws:sns:sa-east-1:211125453684:tester"
+    },
+    {
+      "Sid": "__default_statement_ID",
+      "Effect": "Allow",
+      "Principal": {
+        "AWS": "*"
+      },
+      "Action": [
+        "SNS:GetTopicAttributes",
+        "SNS:SetTopicAttributes",
+        "SNS:AddPermission",
+        "SNS:RemovePermission",
+        "SNS:DeleteTopic",
+        "SNS:Subscribe",
+        "SNS:ListSubscriptionsByTopic",
+        "SNS:Publish"
+      ],
+      "Resource": "arn:aws:sns:sa-east-1:211125453684:tester",
+      "Condition": {
+        "StringEquals": {
+          "AWS:SourceOwner": "211125453684"
+        }
+      }
+    }
+  ]
+}
 ```
 
-![Image](https://github.com/user-attachments/assets/c7cc5993-8579-4fca-adf8-78b38ef182e4)
 
 **3. Enable CloudTrail**
 - Go to the **CloudTrail Console**.
