@@ -124,7 +124,7 @@ This project demonstrates how to integrate AWS Config with Amazon S3, SNS, and C
 - Check your email:
      - An SNS notification is sent to the subscribed email address.
 
-![Image](https://github.com/user-attachments/assets/ac31c51a-d369-44ed-bad8-c861e52260cf)
+![Image](https://github.com/user-attachments/assets/3a16878b-015a-4513-85bf-8dbbdd980de3)
 
 - Check CloudTrail:
      - Go to the **CloudTrail Console**.
